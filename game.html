@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game of Life</title>
+    <link rel="stylesheet" href="game.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="top-head">
+      <h1>Game of Life</h1>
+      <div class="backbutton">
+        <button type="button">Back to previous page</button>
+      </div>
+    </div>
+    <div class="head-container">
+      <div class="start-buttom">
+        <button type="button">Start to play the game</button>
+      </div>
+      <div class="dog-img">
+        <img src="hidog.png" alt="hidog" width="100" height="100" />
+      </div>
+      <div class="head-rightitems">
+        <div class="head-rightitems1">
+          <div class="framerate">
+            Frame rate
+            <input
+              type="range"
+              value="15"
+              min="5"
+              max="60"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output>15</output>
+          </div>
+          <div id="boxcolor-text">Box Color</div>
+          <div class="boxcolorcontainer">
+            <div id="yello" class="boxcolor" onclick="changeBoxcolor(id)"></div>
+            <div
+              id="pinkpink"
+              class="boxcolor"
+              onclick="changeBoxcolor(id)"
+            ></div>
+            <div
+              id="purple"
+              class="boxcolor"
+              onclick="changeBoxcolor(id)"
+            ></div>
+          </div>
+        </div>
+
+        <div class="head-rightitems2">
+          <div id="backgroundtext">Background</div>
+          <div class="backgroundcolor-container">
+            <a onclick="bgchange(id)" id="a">#87CEFA</a>
+            <a onclick="bgchange(id)" id="b">#FFB6C1</a>
+            <a onclick="bgchange(id)" id="c">#A9A9A9</a>
+            <a onclick="bgchange(id)" id="d">#78e08f</a>
+          </div>
+          <div id="canvatext">Canva Color</div>
+          <div class="canva-color"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="canvas"></div>
+
+    <div class="footer-container">
+      <div class="game-rules-slider">
+        <h5>Try to change the rules of the game!</h5>
+
+        <div id="loneliness-slider">Loneliness</div>
+
+        <div id="overpopulation-slider">Overpopulation</div>
+
+        <div id="Reproduction-slider">Reproduction</div>
+      </div>
+
+      <div class="footer-rightitems">
+        <div id="Stop">
+          <button type="button">Stop</button>
+        </div>
+
+        <div id="reset-game">
+          <button type="button">Restart</button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="game.js"></script>
+  </body>
+  <style>
+    @import url("https://fonts.cdnfonts.com/css/frogie");
+
+    @import url("https://fonts.cdnfonts.com/css/unknown-galaxy");
+  </style>
+</html>
