@@ -1,5 +1,5 @@
 const unitLength = 20;
-const boxColor = 150;
+let boxColor = 150;
 const strokeColor = 50;
 let columns;
 let rows;
@@ -84,6 +84,35 @@ function initBoard() {
   }
 }
 
+// let rgb1 = 255;
+// let rgb2 = 255;
+// let rgb3 = 200;
+
+function updateUI() {
+  for (let i = 0; i < columns; i++) {
+    for (let j = 0; j < rows; j++) {
+      if (currentBoard[i][j] === 1) {
+        fill(boxColor);
+      } else {
+        fill(255);
+      }
+      stroke(strokeColor);
+      rect(i * unitLength, j * unitLength, unitLength, unitLength);
+    }
+  }
+}
+
+let colorBoxes = document.querySelectorAll(".boxcolor");
+
+for (let box of colorBoxes) {
+  box.addEventListener("click", (e) => {
+    boxColor = e.target.id;
+    // console.log("clicked");
+  });
+}
+
+console.log(colorBoxes);
+
 function draw() {
   a = lonelinessSlider.value();
   b = overpopulationSlider.value();
@@ -96,22 +125,8 @@ function draw() {
   //canvaColor
   let bg = canvaColor.value();
   background(bg);
-  //console.log(bg);
 
-  click;
-
-  //Canva operation
-  for (let i = 0; i < columns; i++) {
-    for (let j = 0; j < rows; j++) {
-      if (currentBoard[i][j] == 1) {
-        fill(boxColor);
-      } else {
-        fill(bg);
-      }
-      stroke(strokeColor);
-      rect(i * unitLength, j * unitLength, unitLength, unitLength);
-    }
-  }
+  updateUI();
 }
 
 function generate() {
@@ -154,6 +169,7 @@ function mouseDragged() {
   fill(boxColor);
   stroke(strokeColor);
   rect(x * unitLength, y * unitLength, unitLength, unitLength);
+  updateUI();
 }
 
 function mousePressed() {
@@ -204,38 +220,23 @@ frameratecontainer.addEventListener("change", function (e) {
   fr = parseInt(e.target.value);
 });
 
-//Changeboxcolor
-let colorBoxes = document.querySelectorAll(".boxcolor");
-
-function changeBoxcolor() {
-  for (const box of colorBoxes) {
-    box.addEventListener("change", function (id) {
-      if (box.id.contains("yello")) {
-        boxColor = document.getElementById("yello").color;
-      } else if (box.id.contains("pinkpink")) {
-        boxColor = document.getElementById("pinkpink").color;
-      } else if (box.id.contains("purple")) {
-        boxColor = document.getElementById("purple").color;
-      }
-    });
-  }
-}
-
 //dogmove
 
-// let dogImage = document.querySelector(".dog-img");
-// dogImage.style.position = "relative";
-// dogImage.style.left = "0px";
-// dogImage.style.top = "0px";
+let dogImage = document.querySelector(".dog-img");
+dogImage.style.position = "absolute";
+dogImage.style.left = "0px";
+dogImage.style.top = "0px";
 
-// dogImage.addEventListener("keydown", function (event) {
-//   if (event.keyCode === 37) {
-//     dogImage.style.left = parseInt(dogImage.style.left) - 5 + "px";
-//   } else if (event.keyCode === 38) {
-//     dogImage.style.top = parseInt(dogImage.style.top) - 5 + "px";
-//   } else if (event.keyCode === 39) {
-//     dogImage.style.left = parseInt(dogImage.style.left) + 5 + "px";
-//   } else if (event.keyCode === 40) {
-//     dogImage.style.top = parseInt(dogImage.style.top) + 5 + "px";
-//   }
-// });
+document.addEventListener("keydown", function (event) {
+  event.preventDefault();
+  console.log(event.key);
+  if (event.key === "ArrowLeft") {
+    dogImage.style.left = parseInt(dogImage.style.left) - 5 + "px";
+  } else if (event.key === "ArrowUp") {
+    dogImage.style.top = parseInt(dogImage.style.top) - 5 + "px";
+  } else if (event.key === "ArrowRight") {
+    dogImage.style.left = parseInt(dogImage.style.left) + 5 + "px";
+  } else if (event.key === "ArrowDown") {
+    dogImage.style.top = parseInt(dogImage.style.top) + 5 + "px";
+  }
+});

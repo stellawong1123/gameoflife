@@ -1,3 +1,10 @@
+.landingpage {
+  color: black;
+  font-family: 'Frogie', sans-serif; 
+  font-size: larger;
+  text-decoration: none;
+}
+
 .top-head{
 display:flex;
 justify-content: space-between;
@@ -13,6 +20,7 @@ font-family: 'Unknown Galaxy', sans-serif;
 
 .head-container{
 display:flex;
+position: relative;
 font-family: 'Frogie', sans-serif; 
 justify-content: space-between;
 }
@@ -20,6 +28,7 @@ justify-content: space-between;
 .start-buttom{
 margin-left: 10px;
 padding: 10px;
+margin-bottom: 40px;
 }
 
 
@@ -39,21 +48,22 @@ margin-bottom: 40px;
 }
 
 .boxcolor-container{
-     width:25%;height:30px;
+     width:25%;
+     height:60px;
     display:flex;
     padding:2px;
     }
     
 
 
-    #yello {
+    #yellow {
         height: 20px;
         width: 20px;
         background-color:#FAD02C;
         color:#FAD02C;
       }
 
-      #pinkpink {
+      #pink {
         height: 20px;
         width: 20px;
         background-color:#FA8072;
